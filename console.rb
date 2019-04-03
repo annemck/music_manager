@@ -34,6 +34,12 @@ album3 = Album.new( {
   })
   
 album3.save()
+
+artist2.name = 'Lincoln Park'
+artist2.update()
+
+album3.title = 'HybridTheory Remixed'
+album3.update()
   
 binding.pry
   
