@@ -40,4 +40,18 @@ class Album
     values = [@title, @genre, @artist_id, @id]
     DataAccessor.run(sql, values)
   end
+  
+  def delete()
+    sql = "DELETE FROM albums WHERE id = $1"
+    value = [@id]
+    DataAccessor.run(sql, value)
+  end
+  
+  def self.find_by_id(id)
+    sql = "SELECT * FROM albums WHERE id = $1"
+    value = [id]
+    result = DataAccessor.run(sql, value)[0]
+    return Album.new(result)
+  end
+  
 end
